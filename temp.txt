@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Accessible Map</title>
+    <link rel="stylesheet" href="https://openlayers.org/en/v4.2.0/css/ol.css" type="text/css">
+    <!-- The line below is only needed for old environments like Internet Explorer and Android 4.x -->
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
+    <script src="https://openlayers.org/en/v4.2.0/build/ol.js"></script>
+    <style>
+      a.skiplink {
+        position: absolute;
+        clip: rect(1px, 1px, 1px, 1px);
+        padding: 0;
+        border: 0;
+        height: 1px;
+        width: 1px;
+        overflow: hidden;
+      }
+      a.skiplink:focus {
+        clip: auto;
+        height: auto;
+        width: auto;
+        background-color: #fff;
+        padding: 0.3em;
+      }
+      #map:focus {
+        outline: #4A74A8 solid 0.15em;
+      }
+    </style>
+  </head>
+  <body>
+	<div id="container" style="width: 99vw; height: 98vh; overflow: hidden;">
+		<div id="map" style="width: 79%; float: left; height: 100%; background-color: #8DA9B2;">
+		</div>
+		<div style="width: 20%; float: left;">
+			<h1>Terra</h1>
+			<input id="clickMe" type="button" value="Click" onclick="function();" />
+		</div>
+	</div>
+		
+    <script>
+	
+		
+		// ************************************** //
+		// ************************************** //
+		// ************************************** //
+		
+		// Default setting initialization
+		var full_extent = [0,0,10000,6923];
+		var yuan_extent = [1695,2891,4217,5480];
+		
+		
+		// Initializing the project
+		var projection = new ol.proj.Projection({
+		  code: 'xkcd-image',
+		  units: 'pixels',
+		  extent: full_extent
+		});
+
+		
+		// ************************************** //
+		// ************************************** //
+		// ************************************** //
+		
+		// Style Declaration
+		
+		var style_city_capital = new ol.style.Style({
+			image: new ol.style.Icon(({
+				src: 'MapFiles/Icons/ico_city_1'
+			}))
+		});
+
+
+		// ************************************** //
+		// ************************************** //
+		// ************************************** //
+		
+		// Icon Features //
+		
+		var iconFeature = new ol.Feature({
+			geometry: new ol.geom.Point([3889, 5145]),
+			name: 'Xiayang'
+		});
+
+		var vectorSource = new ol.source.Vector({
+			features: [iconFeature]
+			// ,projection: projection
+		});
+
+		var yuan_capital = new ol.layer.Vector({
+			source: vectorSource
+		});
+		
+		yuan_capital.setStyle(style_city_capital);
+
+		  
+		// ************************************** //
+		// ************************************** //
+		// ************************************** //
+		
+		// Defining the terrain 
+		var map_yuan = new ol.layer.Image({
+			  source: new ol.source.ImageStatic({
+				url: 'MapFiles/Map_Yuan.png',
+				projection: projection,
+				imageExtent: yuan_extent
+			  })
+		})
+
+		// ************************************** //
+		// ************************************** //
+		// ************************************** //
+		
+		// Final set of map initialization
+		
+		var map = new ol.Map({
+		  layers: [map_yuan,yuan_capital],
+		  target: 'map',
+		  view: new ol.View({
+			projection: projection,
+			center: ol.extent.getCenter(full_extent),
+			zoom: 3,
+			maxZoom: 9,
+			minZoom: 1
+		  })
+		});
+		
+    </script>
+  </body>
+</html>
