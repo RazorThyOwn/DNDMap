@@ -1,9 +1,23 @@
 // Dev Options
-devEnabled = 0;
+var devEnabled = 0;
+var movement = 1;
+var scaleNum = 1;
+var fontScale = 2;
+var fontOffset = 0;
+var roadWidth = 2;
+var prevZoom = 3;
+
+var positionX;
+var positionY;
+
+// Political Mapmode
+var polG = 0;
+var polL = 0;
+
 
 // Variables associated with full terrain
 
-var yuan = 0;
+var yuan = 1;
 var elvania = 0;
 var valdrimm = 0;
 var choria = 0;
@@ -62,7 +76,7 @@ var terrain_misc_lesser = 0;
 
 // Variables associated with the display of city icons
 
-var city_yuan_capitals = 1;
+var city_yuan_capitals = 0;
 var city_yuan_greater = 0;
 var city_yuan_lesser = 0;
 
@@ -70,6 +84,7 @@ var city_choria_capitals = 0;
 var city_choria_greater = 0;
 var city_choria_lesser = 0;
 
+var city_valdrimm_capitals = 0;
 var city_valdrimm_greater = 0;
 var city_valdrimm_lesser = 0;
 
@@ -77,9 +92,11 @@ var city_elvania_capitals = 0;
 var city_elvania_greater = 0;
 var city_elvania_lesser = 0;
 
+var city_ocean_capitals = 0;
 var city_ocean_greater = 0;
 var city_ocean_lesser = 0;
 
+var city_misc_capitals = 0;
 var city_misc_greater = 0;
 var city_misc_lesser = 0;
 
@@ -105,12 +122,8 @@ var road_misc_lesser = 0;
 
 // Variables associated with the display of secrets
 
-var secret_yuan = 0;
-var secret_choria = 0;
-var secret_valdrimm = 0;
-var secret_elvania = 0;
-var secret_ocean = 0;
-var secret_misc = 0;
+var secretOn = 0;
+var secretId = 0000;
 
 // Full Map Options (For other stuff)
 

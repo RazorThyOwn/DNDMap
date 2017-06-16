@@ -1,4 +1,4 @@
-function getCity(table, id) {
+function addData(table, name, x, y, x2, y2, type) {
 	
 	// ID is used for helping us determine exactly what functionality is 
 	// going to be used from the table that we pull
@@ -8,13 +8,13 @@ function getCity(table, id) {
 	// 1 is vector based image (roads, political maps, etc)
 	// 2 is both marker_label AND marker (usual option)
 	
-	console.log("AJAX pull of "+table);
+	console.log("AJAX push...");
 	
 	var output = $.ajax({
-			url: 'pull.php',
-			data: {table: table},
+			url: 'push.php',
+			data: {table: table, name: name, x: x, y: y, x2: x2, y2: y2, type: type},
 			success:function(data) {
-				parseMarkerAdd(data,id);
+				console.log(data);
 			}
 		});
 }
