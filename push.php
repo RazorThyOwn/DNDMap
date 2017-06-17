@@ -40,9 +40,9 @@
 		$y2 = $_GET['y2'];
 	}
 	
-	$servername = "54.193.125.64";
+	$servername = "localhost";
 	$username = "root";
-	$password = "dermdermderm99";
+	$password = "tmp";
 	$dbname = "dndmap";
 	
 	$conn = new mysqli($servername, $username, $password, $dbname);

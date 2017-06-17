@@ -187,7 +187,20 @@ function finalizeMarkers() {
 	map.addLayer(marker_layer);
 }
 
-function reloadMap() {
+function reloadMap(id) {
+	scaleAdjust();
+	// Doing a bit of messing around to ensure labels loading correctly...
+	if (!id) {
+		reloadMap_main();
+	}
+	else {
+		// Main reload
+		reloadMap_main();
+		map.getView().setZoom(prevZoom);
+	}
+}
+
+function reloadMap_main() {
 	
 	// First we remove all layers to preserve ordering
 	removeAllLayers();
@@ -575,4 +588,5 @@ function reloadMap() {
   
 	// Saving world into cookies
 	saveCookies()
+	
 }

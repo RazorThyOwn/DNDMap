@@ -28,9 +28,12 @@ map.on("moveend", function(e) {
 	if (newZoomLevel != prevZoom) {
 		prevZoom = newZoomLevel;
 		
-		adjustIconScale(prevZoom);
-		
-			if (prevZoom == 1) {
+		adjustIconScale(prevZoom);	
+	}
+});
+
+function scaleAdjust() {
+	if (prevZoom == 1) {
 				fontScale = 25;
 				fontOffset = 20;
 				roadWidth = 0.2;
@@ -75,5 +78,4 @@ map.on("moveend", function(e) {
 				fontOffset = 10;
 				roadWidth = 20;
 			}
-	}
-});
+}

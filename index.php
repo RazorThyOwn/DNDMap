@@ -1,3 +1,14 @@
+<?php
+
+	// Loading the cookie!
+	
+	if (isset($_GET['map'])) {
+		$mapCookie = $_GET['map'];
+		$cookieName = "map";
+		setcookie($cookieName, $mapCookie, time() + 86400);
+	}
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -33,7 +44,7 @@
 				
 				<br>
 				
-				<input style="width: 100%; margin-left: 1vw;" id="reloadButton" class="btn btn-danger" type="button" value="Reload Map" onClick="reloadMap()"/>
+				<input style="width: 100%; margin-left: 1vw;" id="reloadButton" class="btn btn-danger" type="button" value="Reload Map" onClick="reloadMap(0)"/>
 				
 				<br>
 				<br>
@@ -41,7 +52,7 @@
 				<button style="width: 100%; margin-left: 1vw;" class="btn btn-success" data-toggle="collapse" data-target="#mapOptions">Map Options</button>
 				<div id="mapOptions" style="text-align: left; margin-left: 2vw;" class="collapse">
 					<h4 style="font-weight: bold; text-decoration: underline;">Map Options</h4>
-					<label style="padding-left: 1vw;"><input id="y_t" type="checkbox" value="">Display Yuan Terrain</label><br>
+					<label style="padding-left: 1vw;"><input id="y_t" type="checkbox" value="1">Display Yuan Terrain</label><br>
 					<label style="padding-left: 1vw;"><input id="e_t" type="checkbox" value="">Display Elvania Terrain</label><br>
 					<label style="padding-left: 1vw;"><input id="v_t" type="checkbox" value="">Display Valdrimm Terrain</label><br>
 					<label style="padding-left: 1vw;"><input id="c_t" type="checkbox" value="">Display Choria Terrain</label><br>
@@ -218,8 +229,7 @@
 
 <!--- Loading core JS for the application... --->
 
-		<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
-		<script src="https://openlayers.org/en/v4.2.0/build/ol.js"></script>
+		<script src="ol.js"></script>
 
 <script>
 	// Primary functionality
@@ -351,6 +361,11 @@ style_city_lesser = new ol.style.Style({
 
 </script>
 
+<script>
+// Attempting to load saved cookie...
+loadCookie();
+</script>
+
 
 
 
@@ -451,6 +466,5 @@ style_city_lesser = new ol.style.Style({
 <!-- Bootstrap core JavaScript
     ================================================== -->
 
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="Bootstrap/tether.min.js"></script>
     <script src="Bootstrap/js/bootstrap.min.js"></script>

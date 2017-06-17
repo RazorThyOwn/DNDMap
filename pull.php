@@ -6,9 +6,9 @@
 		$table = $_GET['table'];
 	}
 	
-	$servername = "54.193.125.64";
+	$servername = "localhost";
 	$username = "root";
-	$password = "dermdermderm99";
+	$password = "tmp";
 	$dbname = "dndmap";
 	
 	$conn = new mysqli($servername, $username, $password, $dbname);

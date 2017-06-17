@@ -2,13 +2,10 @@
 var devEnabled = 0;
 var movement = 1;
 var scaleNum = 1;
-var fontScale = 2;
+var fontScale = 50;
 var fontOffset = 0;
 var roadWidth = 2;
 var prevZoom = 3;
-
-var positionX;
-var positionY;
 
 // Political Mapmode
 var polG = 0;
@@ -17,7 +14,7 @@ var polL = 0;
 
 // Variables associated with full terrain
 
-var yuan = 1;
+var yuan = 0;
 var elvania = 0;
 var valdrimm = 0;
 var choria = 0;
