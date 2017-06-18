@@ -508,10 +508,16 @@ function reloadMap_main() {
 	}
 		// Roads
 	if (choria && road_choria_greater) {
-		getCity("road_choria_greater",0);
+		var map_choria_roadg = new ol.layer.Image({
+			  source: new ol.source.ImageStatic({
+				url: 'MapFiles/Map_Choria_Roads_Greater.png',
+				projection: projection,
+				imageExtent: choria_extent
+			  })
+		})
+		layerArray.push(map_choria_roadg);
 	}
 	if (choria && road_choria_lesser) {
-		getCity("road_choria_lesser",0);
 	}
 		// Terrain and titles
 	if (choria && terrain_choria_greater) {
