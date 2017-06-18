@@ -14,6 +14,8 @@ function getStyle(icon) {
 }
 
 function parseMarkerAdd(data,id) {
+
+	//console.log(data);
 	// Function will take in all of the data returned by the Ajax and add it into the variable for marker addition
 	
 	// ID is used for helping us determine exactly what functionality is 
@@ -105,12 +107,24 @@ function parseMarkerAdd(data,id) {
 				topX.appendChild(node);
 				
 				// Adding style and class :p
-				
+
 				topX.style.color = "black";
 				topX.style.fontWeight = "bold";
 				topX.style.fontSize = ""+fontScale+"%";
 				topX.style.textShadow = "-1px 0 #ffffff,0 1px #ffffff,1px 0 #ffffff,0 -1px #ffffff";
-				topX.href = "http:\\www.awalexweber.com/dndwiki/"+name;
+				topX.className="textLabel";
+
+				var newName = "";
+				// Removing all spaces from the name...
+				for (var i = 0; i < name.length; i++) {
+					var letter = name.substring(i,i+1);
+					if (letter == " ") {
+						letter = "_";
+					}
+					newName = newName + letter;
+				}
+				
+				topX.href = "http://www.awalexweber.com/dndwiki/index.php/" + newName;
 				
 				overlayHolder.appendChild(topX);
 				

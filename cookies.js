@@ -2,7 +2,7 @@
 
 function saveCookies() {
 	
-	console.log("SAVING COOKIES...");
+	//console.log("SAVING COOKIES...");
 	
 	var coded = "";
 	
@@ -48,7 +48,7 @@ function saveCookies() {
 		coded = coded + 0;
 	}
 	
-	console.log("6:"+coded.length);
+	//console.log("6:"+coded.length);
 	// Code for handling zoom level, positioning
 	
 	// Zoom Level
@@ -60,7 +60,7 @@ function saveCookies() {
 	
 	coded = coded + binZoom;
 	
-	console.log("10:"+coded.length);
+	//console.log("10:"+coded.length);
 	
 	// Position
 	
@@ -86,10 +86,10 @@ function saveCookies() {
 	coded = coded + x + y;
 	coded = coded + "00";
 	
-	console.log(x+","+y);
+	//console.log(x+","+y);
 	
-	console.log("22:"+coded.length);
-	console.log(coded);
+	//console.log("22:"+coded.length);
+	//console.log(coded);
 	
 	// Yuan
 	if (city_yuan_capitals) {
@@ -123,8 +123,8 @@ function saveCookies() {
 		coded = coded + 1;
 	} else {coded = coded + 0};
 	
-	console.log("31:"+coded.length);
-	console.log(coded);
+	//console.log("31:"+coded.length);
+	//console.log(coded);
 	
 	// elvania
 	if (city_elvania_capitals) {
@@ -158,8 +158,8 @@ function saveCookies() {
 		coded = coded + 1;
 	} else {coded = coded + 0};
 	
-	console.log("40:"+coded.length);
-	console.log(coded);
+	//console.log("40:"+coded.length);
+	//console.log(coded);
 	
 	// valdrimm
 	if (city_valdrimm_capitals) {
@@ -193,8 +193,8 @@ function saveCookies() {
 		coded = coded + 1;
 	} else {coded = coded + 0};
 	
-	console.log("49:"+coded.length);
-	console.log(coded);
+	//console.log("49:"+coded.length);
+	//console.log(coded);
 	
 	// choria
 	if (city_choria_capitals) {
@@ -228,8 +228,8 @@ function saveCookies() {
 		coded = coded + 1;
 	} else {coded = coded + 0};
 	
-	console.log("58:"+coded.length);
-	console.log(coded);
+	//console.log("58:"+coded.length);
+	//console.log(coded);
 	
 	// ocean
 	if (city_ocean_capitals) {
@@ -263,8 +263,8 @@ function saveCookies() {
 		coded = coded + 1;
 	} else {coded = coded + 0};
 	
-	console.log("67:"+coded.length);
-	console.log(coded);
+	//console.log("67:"+coded.length);
+	//console.log(coded);
 	
 	// misc
 	if (city_misc_capitals) {
@@ -298,8 +298,8 @@ function saveCookies() {
 		coded = coded + 1;
 	} else {coded = coded + 0};
 	
-	console.log("76:"+coded.length);
-	console.log(coded);
+	//console.log("76:"+coded.length);
+	//console.log(coded);
 	
 	if (secretOn) {
 		coded = coded + 1;
@@ -312,7 +312,7 @@ function saveCookies() {
 	
 	coded = coded + secretString;
 	
-	console.log("81:"+coded.length);
+	//console.log("81:"+coded.length);
 	
 	if (polG) {
 		coded = coded + 1;
@@ -331,24 +331,24 @@ function saveCookies() {
 	
 	for (var i = 0; i < 3; i++) {
 		var binSelect = "0100" + coded.substring(0 + i*4, 4 + i*4);
-		console.log(binSelect);
+		//console.log(binSelect);
 		output += String.fromCharCode(parseInt(binSelect, 2));
 	}
 	
-	console.log(output);
+	//console.log(output);
 	output += coded.substring(12,20);
-	console.log(output);
+	//console.log(output);
 	
 	for (var i = 5; i < 21; i++) {
 		var binSelect = "0100" + coded.substring(0 + i*4, 4 + i*4);
-		console.log(binSelect);
+		//console.log(binSelect);
 		if (binSelect == "01000000") {
 			binSelect = "01110111";
 		}
 		output += String.fromCharCode(parseInt(binSelect, 2));
 	}
 	
-	console.log(coded);
+	//console.log(coded);
 	console.log(output);
 	document.cookie = "map="+output;
 }
@@ -430,10 +430,10 @@ function loadCookie() {
 
 function decryptCookie(cookie) {
 	
-	console.log("DECRYPTING COOKIES");
+	//console.log("DECRYPTING COOKIES");
 	// Decoding cookie
 	cookie = cookie.substring(4);
-	console.log(cookie);
+	//console.log(cookie);
 
 	// Initing the coded variable
 	var coded = "";
@@ -442,33 +442,33 @@ function decryptCookie(cookie) {
 	
 	for (var i = 0; i < 3; i++) {
 		var currentLetter = cookie.charCodeAt(i);
-		console.log(currentLetter+","+cookie.substring(i,i+1));
+		//console.log(currentLetter+","+cookie.substring(i,i+1));
 		if (currentLetter == 119) {
 			currentLetter = 64;
 		}
-		console.log(currentLetter);
+		//console.log(currentLetter);
 		var fullChar = '0' + (currentLetter >>> 0).toString(2);
 		coded = coded + fullChar.substring(4);
 	}
 	
 	// Getting the positional information
-	console.log(coded);
+	//console.log(coded);
 	coded = coded + cookie.substring(3,11);
-	console.log(coded);
+	//console.log(coded);
 	
 	// Getting the rest of the information
 	for (var i = 11; i < 27; i++) {
 		var currentLetter = cookie.charCodeAt(i);
-		console.log(currentLetter+","+cookie.substring(i,i+1));
+		//console.log(currentLetter+","+cookie.substring(i,i+1));
 		if (currentLetter == 119) {
 			currentLetter = 64;
 		}
-		console.log(currentLetter);
+		//console.log(currentLetter);
 		var fullChar = '0' + (currentLetter >>> 0).toString(2);
 		coded = coded + fullChar.substring(4);
 	}
 	
-	console.log(coded);
+	//console.log(coded);
 	
 	
 	
@@ -553,32 +553,32 @@ function decryptCookie(cookie) {
 	x = x+4;
 	x = x+4;
 	
-	console.log(posX);
-	console.log(posY);
+	//console.log(posX);
+	//console.log(posY);
 	
 	posX = parseInt(posX);
 	posY = parseInt(posY);
 	
-	console.log(posX);
-	console.log(posY);
+	//console.log(posX);
+	//console.log(posY);
 	
 	map.getView().setCenter([posX,posY]);
 	
 	// Rest of the data...
 	
-	console.log(coded);
-	console.log(x);
+	//console.log(coded);
+	//console.log(x);
 	
 	x++;
 	x++;
 	x++;
 	x++;
 	
-	console.log(x);
+	//console.log(x);
 	
 	//Yuanstuff//
 	
-	//console.log("Value for getting Yuan Capitals: " + coded.substring(x,x+1) + ", "+x);
+	////console.log("Value for getting Yuan Capitals: " + coded.substring(x,x+1) + ", "+x);
 	
 	if (coded.substring(x,x+1) == 1) {
 		city_yuan_capitals = 1;
@@ -589,7 +589,7 @@ function decryptCookie(cookie) {
 	}
 	x++;
 	
-	//console.log("Value for getting Yuan Greater: " + coded.substring(x,x+1) + ", "+x);
+	////console.log("Value for getting Yuan Greater: " + coded.substring(x,x+1) + ", "+x);
 	if (coded.substring(x,x+1) == 1) {
 		city_yuan_greater = 1;
 		document.getElementById("y_cg").checked = true;
@@ -599,7 +599,7 @@ function decryptCookie(cookie) {
 	}
 	x++;
 	
-	//console.log("Value for getting Yuan Lesser: " + coded.substring(x,x+1) + ", "+x);
+	////console.log("Value for getting Yuan Lesser: " + coded.substring(x,x+1) + ", "+x);
 	if (coded.substring(x,x+1) == 1) {
 		city_yuan_lesser = 1;
 		document.getElementById("y_cl").checked = true;
@@ -610,7 +610,7 @@ function decryptCookie(cookie) {
 	x++;
 	
 	
-	console.log("Value for getting Yuan RoadG: " + coded.substring(x,x+1) + ", "+x);
+	//console.log("Value for getting Yuan RoadG: " + coded.substring(x,x+1) + ", "+x);
 	if (coded.substring(x,x+1) == 1) {
 		road_yuan_greater = 1;
 		document.getElementById("y_rg").checked = true;

@@ -34,22 +34,22 @@
 	
 	
 		<!--- Main loading of the div elements --->
-		<div id="container" style="width: 99vw; height: 98vh; overflow: hidden;">
-			<div id="map" style="width: 77%; float: left; height: 100%; background-color: #8DA9B2;">
+		<div id="container" style="width: 99vw; height: 98vh; overflow-y: auto;">
+			<div id="map" style="width: 73%; float: left; height: 100%; background-color: #8DA9B2; position: fixed;">
 			</div>
-			<div style="width: 20%; float: left; text-align: center;">
+			<div style="width: 25%; float: right; text-align: center;">
 				<!--- Options menu --->
 	
 				<h1 style="font-weight: bold;">Map of Terra</h1>
 				
 				<br>
 				
-				<input style="width: 100%; margin-left: 1vw;" id="reloadButton" class="btn btn-danger" type="button" value="Reload Map" onClick="reloadMap(0)"/>
+				<input style="width: 90%; margin-left: 1vw;" id="reloadButton" class="btn btn-danger" type="button" value="Reload Map" onClick="reloadMap(0)"/>
 				
 				<br>
 				<br>
 				
-				<button style="width: 100%; margin-left: 1vw;" class="btn btn-success" data-toggle="collapse" data-target="#mapOptions">Map Options</button>
+				<button style="width: 90%; margin-left: 1vw;" class="btn btn-success" data-toggle="collapse" data-target="#mapOptions">Map Options</button>
 				<div id="mapOptions" style="text-align: left; margin-left: 2vw;" class="collapse">
 					<h4 style="font-weight: bold; text-decoration: underline;">Map Options</h4>
 					<label style="padding-left: 1vw;"><input id="y_t" type="checkbox" value="1">Display Yuan Terrain</label><br>
@@ -65,7 +65,7 @@
 				<br>
 				<br>
 				
-				<button style="width: 100%; margin-left: 1vw;" class="btn btn-primary" data-toggle="collapse" data-target="#yuanOptions">Hide/Show Yuan Options</button>
+				<button style="width: 90%; margin-left: 1vw;" class="btn btn-primary" data-toggle="collapse" data-target="#yuanOptions">Hide/Show Yuan Options</button>
 				<div id="yuanOptions" style="text-align: left; margin-left: 2vw;" class="collapse">
 					<h4 style="font-weight: bold; text-decoration: underline;">Yuan Options</h4>
 					<label style="padding-left: 1vw;"><input id="y_cc" type="checkbox" value="">Cities (Capital)</label><br>
@@ -84,7 +84,7 @@
 				<br>
 				<br>
 				
-				<button style="width: 100%; margin-left: 1vw;" class="btn btn-primary" data-toggle="collapse" data-target="#elvaniaOptions">Hide/Show Elvania Options</button>
+				<button style="width: 90%; margin-left: 1vw;" class="btn btn-primary" data-toggle="collapse" data-target="#elvaniaOptions">Hide/Show Elvania Options</button>
 				<div id="elvaniaOptions" style="text-align: left; margin-left: 2vw;" class="collapse">
 					<h4 style="font-weight: bold; text-decoration: underline;">Elvania Options</h4>
 					<label style="padding-left: 1vw;"><input id="e_cc" type="checkbox" value="">Cities (Capital)</label><br>
@@ -103,7 +103,7 @@
 				<br>
 				<br>
 				
-				<button style="width: 100%; margin-left: 1vw;" class="btn btn-primary" data-toggle="collapse" data-target="#valdrimmOptions">Hide/Show Valdrimm Options</button>
+				<button style="width: 90%; margin-left: 1vw;" class="btn btn-primary" data-toggle="collapse" data-target="#valdrimmOptions">Hide/Show Valdrimm Options</button>
 				<div id="valdrimmOptions" style="text-align: left; margin-left: 2vw;" class="collapse">
 					<h4 style="font-weight: bold; text-decoration: underline;">Valdrimm Options</h4>
 					<label style="padding-left: 1vw;"><input id="v_cc" type="checkbox" value="">Cities (Capital)</label><br>
@@ -121,7 +121,7 @@
 				<br>
 				<br>
 				
-				<button style="width: 100%; margin-left: 1vw;" class="btn btn-primary" data-toggle="collapse" data-target="#choriaOptions">Hide/Show Choria Options</button>
+				<button style="width: 90%; margin-left: 1vw;" class="btn btn-primary" data-toggle="collapse" data-target="#choriaOptions">Hide/Show Choria Options</button>
 				<div id="choriaOptions" style="text-align: left; margin-left: 2vw;" class="collapse">
 					<h4 style="font-weight: bold; text-decoration: underline;">Choria Options</h4>
 					<label style="padding-left: 1vw;"><input id="c_cc" type="checkbox" value="">Cities (Capital)</label><br>
@@ -140,7 +140,7 @@
 				<br>
 				<br>
 				
-				<button style="width: 100%; margin-left: 1vw;" class="btn btn-primary" data-toggle="collapse" data-target="#oceanOptions">Hide/Show Ocean Options</button>
+				<button style="width: 90%; margin-left: 1vw;" class="btn btn-primary" data-toggle="collapse" data-target="#oceanOptions">Hide/Show Ocean Options</button>
 				<div id="oceanOptions" style="text-align: left; margin-left: 2vw;" class="collapse">
 					<h4 style="font-weight: bold; text-decoration: underline;">Ocean Options</h4>
 					<label style="padding-left: 1vw;"><input id="o_cc" type="checkbox" value="">Cities (Capital)</label><br>
@@ -159,7 +159,7 @@
 				<br>
 				<br>
 				
-				<button style="width: 100%; margin-left: 1vw;" class="btn btn-primary" data-toggle="collapse" data-target="#miscOptions">Hide/Show Misc Options</button>
+				<button style="width: 90%; margin-left: 1vw;" class="btn btn-primary" data-toggle="collapse" data-target="#miscOptions">Hide/Show Misc Options</button>
 				<div id="miscOptions" style="text-align: left; margin-left: 2vw;" class="collapse">
 					<h4 style="font-weight: bold; text-decoration: underline;">Misc Options</h4>
 					<label style="padding-left: 1vw;"><input id="m_cc" type="checkbox" value="">Cities (Capital)</label><br>
@@ -178,7 +178,7 @@
 				<br>
 				<br>
 				
-				<button style="width: 100%; margin-left: 1vw;" class="btn btn-success" data-toggle="collapse" data-target="#admapOptions">Additional Map Options</button>
+				<button style="width: 90%; margin-left: 1vw;" class="btn btn-success" data-toggle="collapse" data-target="#admapOptions">Additional Map Options</button>
 				<div id="admapOptions" style="text-align: left; margin-left: 2vw;" class="collapse">
 					<h4 style="font-weight: bold; text-decoration: underline;">Additional Map Options</h4>
 					<label style="padding-left: 1vw;"><input id="x_names" type="checkbox" value="">Display Titles as Names</label><br>
@@ -189,7 +189,7 @@
 				<br>
 				<br>
 				
-				<button style="width: 100%; margin-left: 1vw;" class="btn btn-success" data-toggle="collapse" data-target="#saveLoad">Save/Load</button>
+				<button style="width: 90%; margin-left: 1vw;" class="btn btn-success" data-toggle="collapse" data-target="#saveLoad">Save/Load</button>
 				<div id="saveLoad" style="text-align: left; margin-left: 2vw;" class="collapse">
 					<h4 style="font-weight: bold; text-decoration: underline;">Save/Load</h4>
 					<label style="padding-left: 1vw;"><input id="freeze" type="checkbox" value="">Freeze Map</label><br>

@@ -1,10 +1,11 @@
+
 // Loading the add map icon 
 var prevX = -1;
 var prevY = -1;
 
 map.on("click", function(e) {
 	if (devEnabled) {
-		console.log("clicked!");
+		//console.log("clicked!");
 		$('#addFeatureModal').modal('show');
 		
 		document.getElementById("xval").value = e.coordinate[0];
@@ -27,8 +28,10 @@ map.on("moveend", function(e) {
 	
 	if (newZoomLevel != prevZoom) {
 		prevZoom = newZoomLevel;
-		
+
+		scaleAdjust();		
 		adjustIconScale(prevZoom);	
+		adjustFontScale();
 	}
 });
 
@@ -78,4 +81,18 @@ function scaleAdjust() {
 				fontOffset = 10;
 				roadWidth = 20;
 			}
+
+	//console.log("adjusted zoom scale to "+fontScale);
+}
+
+function adjustFontScale() {
+
+	//console.log("Adjusting the scale of the font...");
+
+	var elm = document.getElementsByClassName("textLabel");
+	for (var i=0; i <elm.length; i++) {
+		var currentElm = elm[i];
+		currentElm.style.fontSize = ""+fontScale+"%";
+		//console.log("setting element "+currentElm+" to "+fontScale+"%");
+	}
 }

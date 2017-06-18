@@ -8,7 +8,7 @@ function getCity(table, id) {
 	// 1 is vector based image (roads, political maps, etc)
 	// 2 is both marker_label AND marker (usual option)
 	
-	console.log("AJAX pull of "+table);
+	//console.log("AJAX pull of "+table);
 	
 	var output = $.ajax({
 			url: 'pull.php',
