@@ -232,6 +232,11 @@ function reloadMap_main() {
 	// Checking for terrain options
 	
 	var yuan_extent = [1695,2891,4217,5480];
+	var elvania_extent;
+	var valdrimm_extent;
+	var choria_extent = [945,1869,2477,3330];
+	var ocean_extent;
+	var misc_extent;
 	
 	if (yuan) {
 
@@ -247,23 +252,58 @@ function reloadMap_main() {
 	}
 	
 	if (elvania) {
-
+		var map_elvania = new ol.layer.Image({
+			  source: new ol.source.ImageStatic({
+				url: 'MapFiles/Map_Elvania.png',
+				projection: projection,
+				imageExtent: elvania_extent
+			  })
+		})
+		layerArray.push(map_elvania);
 	}
 	
 	if (valdrimm) {
-
+		var map_valdrimm = new ol.layer.Image({
+			  source: new ol.source.ImageStatic({
+				url: 'MapFiles/Map_Valdrimm.png',
+				projection: projection,
+				imageExtent: valdrimm_extent
+			  })
+		})
+		layerArray.push(map_valdrimm);
 	}
 	
 	if (choria) {
-
+		var map_choria = new ol.layer.Image({
+			  source: new ol.source.ImageStatic({
+				url: 'MapFiles/Map_Choria.png',
+				projection: projection,
+				imageExtent: choria_extent
+			  })
+		})
+		layerArray.push(map_choria);
 	}
 	
 	if (ocean) {
-
+		var map_ocean = new ol.layer.Image({
+			  source: new ol.source.ImageStatic({
+				url: 'MapFiles/Map_Ocean.png',
+				projection: projection,
+				imageExtent: ocean_extent
+			  })
+		})
+		layerArray.push(map_ocean);
 	}
 	
 	if (misc) {
-
+		var map_misc = new ol.layer.Image({
+			  source: new ol.source.ImageStatic({
+				url: 'MapFiles/Map_Misc.png',
+				projection: projection,
+				imageExtent: misc_extent
+			  })
+		})
+		layerArray.push(map_misc);
 	}
 	
 	// Checking for yuan options
