@@ -181,6 +181,7 @@
 				<button style="width: 90%; margin-left: 1vw;" class="btn btn-success" data-toggle="collapse" data-target="#admapOptions">Additional Map Options</button>
 				<div id="admapOptions" style="text-align: left; margin-left: 2vw;" class="collapse">
 					<h4 style="font-weight: bold; text-decoration: underline;">Additional Map Options</h4>
+					<label style="padding-left: 1vw;"><input id="measure" name="measurement" type="checkbox" value="LineString">Measure Distance</label><br>
 					<label style="padding-left: 1vw;"><input id="x_names" type="checkbox" value="">Display Titles as Names</label><br>
 					<label style="padding-left: 1vw;"><input id="x_tags" type="checkbox" value="">Display Titles as Tags</label><br>			 
 					<label style="padding-left: 1vw;"><input id="dev" type="checkbox" value="">Developer Mode</label><br>

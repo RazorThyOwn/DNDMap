@@ -42,7 +42,7 @@
 	
 	$servername = "localhost";
 	$username = "root";
-	$password = "tmp";
+	$password = "dermdermderm99";
 	$dbname = "dndmap";
 	
 	$conn = new mysqli($servername, $username, $password, $dbname);
