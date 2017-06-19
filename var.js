@@ -7,6 +7,9 @@ var fontOffset = 0;
 var roadWidth = 2;
 var prevZoom = 3;
 
+// Misc
+var ratio = 0.3571428;
+
 // Political Mapmode
 var polG = 0;
 var polL = 0;

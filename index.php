@@ -35,9 +35,9 @@
 	
 		<!--- Main loading of the div elements --->
 		<div id="container" style="width: 99vw; height: 98vh; overflow-y: auto;">
-			<div id="map" style="width: 73%; float: left; height: 100%; background-color: #8DA9B2; position: fixed;">
+			<div id="map" style="width: 80%; float: left; height: 100%; background-color: #8DA9B2; position: fixed;">
 			</div>
-			<div style="width: 25%; float: right; text-align: center;">
+			<div style="width: 20%; float: right; text-align: center;">
 				<!--- Options menu --->
 	
 				<h1 style="font-weight: bold;">Map of Terra</h1>
@@ -268,6 +268,7 @@
 
 	<script src="jquery-3.2.1.min.js"></script>
 	<script src="var.js"></script>
+	<script src="distance.js"></script>
 	<script src="updateMap.js"></script>
 	<script src="checkbox.js"></script>
 	<script src="pull.js"></script>

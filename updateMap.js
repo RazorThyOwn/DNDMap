@@ -648,5 +648,7 @@ function reloadMap_main() {
   
 	// Saving world into cookies
 	saveCookies()
-	
+
+	// Loading measuring tool
+	map.addLayer(vectorLayer);
 }
