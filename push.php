@@ -64,6 +64,10 @@
 		echo "Setting the push to type road";
 		$sql = "INSERT INTO ".$table." (x1,y1,x2,y2,name) VALUES (".$x.",".$y.",".$x2.",".$y2.",'".$name."');";
 	}
+	else if (strcmp("terrain",$type)==0) {
+		echo "Setting the push to type terrain";
+		$sql = "INSERT INTO ".$table." (x,y,name) VALUES (".$x.",".$y.",'".$name."');";
+	}
 	
 	if ($conn->query($sql) === TRUE) {
 		echo "\nNew record created successfully";

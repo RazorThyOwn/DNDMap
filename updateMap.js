@@ -11,6 +11,13 @@ function getStyle(icon) {
 	else if (icon === 'ico_city_3.png') {
 		return style_city_lesser;
 	}	
+	else if (icon === 'ico_terrain.png') {
+		return style_terrain;
+	}
+	else if (icon === 'ico_terrain_1.png') {
+		return style_terrain_lesser;
+		console.log("Setting lesser terrain style");
+	}
 }
 
 function parseMarkerAdd(data,id) {
@@ -21,8 +28,8 @@ function parseMarkerAdd(data,id) {
 	// ID is used for helping us determine exactly what functionality is 
 	// going to be used from the table that we pull
 	
-	// -1 is marker (ie, cities, labels...)
-	// 1 is vector based image (roads, political maps, etc)
+	// -1 is icon (ie, cities, labels...)
+	// 1 is label (and only label)
 	// 2 is pull both marker and image
 	
 	// Loading the feature...
@@ -45,6 +52,7 @@ function parseMarkerAdd(data,id) {
 				geometry: new ol.geom.Point([x,y])
 			});
 			
+
 			var style = getStyle(icon);
 			
 			feature.setStyle(style);
@@ -70,9 +78,54 @@ function parseMarkerAdd(data,id) {
 			
 			return;
 		}
-		
+
 		else if (id == 1) {
+
+			var x = obj.x;
+			var y = map_height - obj.y;
 			
+			var name = obj.name;
+			
+			var label_elm = document.getElementById(name);
+			if (label_elm == null) {
+				// Going to create the document element...
+				
+				// Loading the DOM element into the node
+				var topX = document.createElement("a");
+				var node = document.createTextNode(name);
+				
+				topX.appendChild(node);
+				
+				// Adding style and class :p
+
+				topX.style.color = "black";
+				topX.style.fontWeight = "bold";
+				topX.style.fontSize = ""+fontScale+"%";
+				topX.style.textShadow = "-1px 0 #ffffff,0 1px #ffffff,1px 0 #ffffff,0 -1px #ffffff";
+				topX.className="textLabel";
+
+				var newName = "";
+				// Removing all spaces from the name...
+				for (var i = 0; i < name.length; i++) {
+					var letter = name.substring(i,i+1);
+					if (letter == " ") {
+						letter = "_";
+					}
+					newName = newName + letter;
+				}
+				
+				topX.href = "http://www.awalexweber.com/dndwiki/index.php/" + newName;
+				
+				overlayHolder.appendChild(topX);
+				
+				label_elm = topX;
+			}
+			
+			var label_tmp = new ol.Overlay({
+			  position: [x,y],
+			  element: label_elm
+			});
+			map.addOverlay(label_tmp);
 		}
 		
 		else if (id == 2) {
@@ -82,7 +135,7 @@ function parseMarkerAdd(data,id) {
 			var x = parseInt(obj.x);
 			var y = map_height - obj.y;
 			var icon = obj.icon;
-			
+
 			feature = new ol.Feature({
 				geometry: new ol.geom.Point([x,y])
 			});
@@ -362,10 +415,10 @@ function reloadMap_main() {
 	}
 		// Terrain and titles
 	if (yuan && terrain_yuan_greater) {
-		getCity("terrain_yuan_greater",1);
+		getCity("terrain_yuan_greater",2);
 	}
 	if (yuan && terrain_yuan_lesser) {
-		getCity("terrain_yuan_lesser",1);
+		getCity("terrain_yuan_lesser",2);
 	}
 
 		// Lesser titles

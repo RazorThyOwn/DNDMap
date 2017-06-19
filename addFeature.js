@@ -29,6 +29,10 @@ function addFeature() {
 		console.log("Pushing city feature");
 		type = "city";
 	}
+	else {
+		console.log("Pushing terrain feature");
+		type = "terrain";
+	}
 
 	console.log("Adding feature with name of "+name+" at a position of ("+x+","+y+"), in the table of "+table);
 	addData(table,name,x,y,x2,y2,type);

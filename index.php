@@ -281,6 +281,21 @@
 
 // Loading stylesets for entire load
 
+var style_terrain_lesser = new ol.style.Style({
+        image: new ol.style.Icon(({
+                src: 'MapFiles/Icons/ico_terrain.png',
+                scale: 0.7
+        }))
+});
+
+
+var style_terrain = new ol.style.Style({
+		image: new ol.style.Icon(({
+		src: 'MapFiles/Icons/ico_terrain.png',
+		scale: 1.2
+	}))
+});
+
 var style_city_capital = new ol.style.Style({
 	image: new ol.style.Icon(({
 		src: 'MapFiles/Icons/ico_city_1.png',
@@ -338,6 +353,20 @@ var scaleDat01 = 1.2 * scaleNum;
 var scaleDat02 = 0.7 * scaleNum;
 var scaleDat03 = 0.6 * scaleNum;
 	
+style_terrain_lesser = new ol.style.Style({
+	image: new ol.style.Icon(({
+		src: 'MapFiles/Icons/ico_terrain.png',
+		scale: scaleDat02
+	}))
+});
+
+style_terrain = new ol.style.Style({
+	image: new ol.style.Icon(({
+		src: 'MapFiles/Icons/ico_terrain.png',
+		scale: scaleDat01 * 2
+	}))
+});
+
 style_city_capital = new ol.style.Style({
 	image: new ol.style.Icon(({
 		src: 'MapFiles/Icons/ico_city_1.png',
