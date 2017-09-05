@@ -1,0 +1,11 @@
+Changes that need to be made:
+
+- Move all data into single tables:
+- capitals
+- city_greater
+- city_lesser
+- terrain_greater
+- terrain_lesser
+
+- Individualize all continents
+- Individualize all roads PER TIMES
