@@ -8,7 +8,8 @@ var roadWidth = 2;
 var prevZoom = 3;
 
 // Misc
-var ratio = 0.3571428;
+var ratio = 0.714;
+var distance = 0;
 
 // Political Mapmode
 var polG = 0;
@@ -16,6 +17,8 @@ var polL = 0;
 
 
 // Variables associated with full terrain
+
+var full = 0;
 
 var yuan = 0;
 var elvania = 0;

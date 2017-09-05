@@ -1,3 +1,5 @@
+var distance_title = document.getElementById("distance_title");
+
 var vectorLayer = new ol.layer.Vector({
   source: new ol.source.Vector()
 });
@@ -46,6 +48,10 @@ var enableMeasuringTool = function() {
 	  
       var measurementFormatted = measurement < 10 ? measurement.toFixed(2) + ' miles' : measurement.toFixed(0) + ' miles';
 
+	var n = measurementFormatted.indexOf(" ");
+	distance = measurementFormatted.substring(0,n);
+	distance = parseInt(distance);
+	distance_title.innerHTML = 'Distance : ' +measurementFormatted + ' miles';
       console.log(measurementFormatted);
     });
   });

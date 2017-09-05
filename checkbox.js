@@ -20,6 +20,15 @@ $('#freeze').change(function() {
 
 // Adjusting the values of the terrain options...
 
+$('#full_t').change(function() {
+	var checked = ($(this).prop('checked'));
+	full = checked;
+
+	if (devEnabled) {
+		alert(full);
+	}
+})
+
 $('#y_t').change(function() {
 	var checked = ($(this).prop('checked'));
 	yuan = checked;

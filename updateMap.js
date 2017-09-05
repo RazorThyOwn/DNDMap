@@ -289,9 +289,23 @@ function reloadMap_main() {
 	var valdrimm_extent;
 	var choria_extent = [945,1869,2477,3330];
 	var ocean_extent;
-	var misc_extent;
-	
-	if (yuan) {
+	var misc_extent = [2678,5449,3783,5923];
+
+	// Full Map
+	var full_extent = [0,0,10000,6923];
+
+	if (full) {
+		var map_full = new ol.layer.Image({
+			source: new ol.source.ImageStatic({
+				url: 'MapFiles/Map_Full.png',
+				projection: projection,
+				imageExtent: full_extent
+			})
+		})
+		layerArray.push(map_full);
+	}
+
+	if (!full && yuan) {
 
 		var map_yuan = new ol.layer.Image({
 			  source: new ol.source.ImageStatic({
@@ -304,7 +318,7 @@ function reloadMap_main() {
 		
 	}
 	
-	if (elvania) {
+	if (!full && elvania) {
 		var map_elvania = new ol.layer.Image({
 			  source: new ol.source.ImageStatic({
 				url: 'MapFiles/Map_Elvania.png',
@@ -315,7 +329,7 @@ function reloadMap_main() {
 		layerArray.push(map_elvania);
 	}
 	
-	if (valdrimm) {
+	if (!full && valdrimm) {
 		var map_valdrimm = new ol.layer.Image({
 			  source: new ol.source.ImageStatic({
 				url: 'MapFiles/Map_Valdrimm.png',
@@ -326,7 +340,7 @@ function reloadMap_main() {
 		layerArray.push(map_valdrimm);
 	}
 	
-	if (choria) {
+	if (!full && choria) {
 		var map_choria = new ol.layer.Image({
 			  source: new ol.source.ImageStatic({
 				url: 'MapFiles/Map_Choria.png',
@@ -337,10 +351,10 @@ function reloadMap_main() {
 		layerArray.push(map_choria);
 	}
 	
-	if (ocean) {
+	if (!full && ocean) {
 		var map_ocean = new ol.layer.Image({
 			  source: new ol.source.ImageStatic({
-				url: 'MapFiles/Map_Ocean.png',
+				url: 'MapFiles/Map_Orion.png',
 				projection: projection,
 				imageExtent: ocean_extent
 			  })
@@ -348,10 +362,10 @@ function reloadMap_main() {
 		layerArray.push(map_ocean);
 	}
 	
-	if (misc) {
+	if (!full && misc) {
 		var map_misc = new ol.layer.Image({
 			  source: new ol.source.ImageStatic({
-				url: 'MapFiles/Map_Misc.png',
+				url: 'MapFiles/Map_Orion.png',
 				projection: projection,
 				imageExtent: misc_extent
 			  })

@@ -9,7 +9,7 @@ function addData(table, name, x, y, x2, y2, type) {
 	// 2 is both marker_label AND marker (usual option)
 	
 	console.log("AJAX push...");
-	
+
 	var output = $.ajax({
 			url: 'push.php',
 			data: {table: table, name: name, x: x, y: y, x2: x2, y2: y2, type: type},
