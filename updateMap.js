@@ -38,14 +38,16 @@ function parseMarkerAdd(data,id) {
 	// Loading the JSON
 	var dat = JSON.parse(data);
 	
+	console.log(dat);
+
 	dat.forEach(function(obj) {
 
 		if (id == -1) {
-			
+
 			// Parsing
 
-			var x = obj.x;
-			var y = map_height - obj.y;
+			var x = obj.position_x;
+			var y = map_height - obj.position_y;
 			var icon = obj.icon;
 			
 			feature = new ol.Feature({
@@ -81,10 +83,10 @@ function parseMarkerAdd(data,id) {
 
 		else if (id == 1) {
 
-			var x = obj.x;
-			var y = map_height - obj.y;
+			var x = obj.position_x;
+			var y = map_height - obj.position_y;
 			
-			var name = obj.name;
+			var name = obj.title;
 			
 			var label_elm = document.getElementById(name);
 			if (label_elm == null) {

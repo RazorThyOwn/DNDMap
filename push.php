@@ -51,14 +51,14 @@
 		echo "UNABLE TO CONNECT";
 		die("Connection failed: " . $conn->connect_error);
 	}
-	
+
 	$sql = "";
-	
+
 	if (strcmp("city",$type)==0) {
-	
+
 		echo "Setting the push to type city";
-		$sql = "INSERT INTO ".$table." (x,y,name) VALUES (".$x.",".$y.",'".$name."');";
-	
+		$sql = "INSERT INTO city_table (position_x,position_y,title,type_category) VALUES (".$x.",".$y.",'".$name."','".$table."');";
+
 	}
 	else if (strcmp("road",$type)==0) {
 		echo "Setting the push to type road";
@@ -66,13 +66,13 @@
 	}
 	else if (strcmp("terrain",$type)==0) {
 		echo "Setting the push to type terrain";
-		$sql = "INSERT INTO ".$table." (x,y,name) VALUES (".$x.",".$y.",'".$name."');";
+		$sql = "INSERT INTO terrain_table (position_x,position_y,title,type_category) VALUES (".$x.",".$y.",'".$name."','".$table."');";
 	}
-	
+
 	if ($conn->query($sql) === TRUE) {
 		echo "\nNew record created successfully";
-	} 
-	
+	}
+
 	else {
 		echo "Error: " . $sql . "<br>" . $conn->error;
 	}

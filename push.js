@@ -1,4 +1,4 @@
-function addData(table, name, x, y, x2, y2, type) {
+function addData(table, name, x, y, x2, y2, type, icon) {
 	
 	// ID is used for helping us determine exactly what functionality is 
 	// going to be used from the table that we pull
@@ -12,7 +12,7 @@ function addData(table, name, x, y, x2, y2, type) {
 
 	var output = $.ajax({
 			url: 'push.php',
-			data: {table: table, name: name, x: x, y: y, x2: x2, y2: y2, type: type},
+			data: {table: table, name: name, x: x, y: y, x2: x2, y2: y2, type: type, icon: icon},
 			success:function(data) {
 				console.log(data);
 			}

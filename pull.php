@@ -4,12 +4,22 @@
 	if ($_GET['table']) {
 		$table = $_GET['table'];
 	}
-	
+
+	// Parsing the table name
+	// This is because we updated to full group of tables
+	// Creating the selectors
+	if (substr($table, 0, 4) == "city") {
+		$table = "city_table";
+	}
+	else if (substr($table,0,7) == "terrain") {
+		$table = "terrain_table";
+	}
+
 	$servername = "localhost";
 	$username = "root";
 	$password = "dermdermderm99";
 	$dbname = "dndmap";
-	
+
 	$conn = new mysqli($servername, $username, $password, $dbname);
 	// Check connection
 	if ($conn->connect_error) {

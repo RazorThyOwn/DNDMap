@@ -1,4 +1,7 @@
 function addFeature() {
+	// ICON Feature
+	var icon = "NO_ICON";
+
 	// Hiding the modal
 	$('#addFeatureModal').modal('hide');
 	
@@ -24,7 +27,7 @@ function addFeature() {
 		type = "road";
 		name = "road";
 	}
-	
+
 	else if (t2 == "city") {
 		console.log("Pushing city feature");
 		type = "city";
@@ -34,6 +37,17 @@ function addFeature() {
 		type = "terrain";
 	}
 
+	// Setting up icons
+	if (t3 == "capitals") {
+		icon = "ico_city_1.png";
+	}
+	else if (t3 == "greater") {
+		icon = "ico_city_2.png";
+	}
+	else if (t3 == "lesser") {
+		icon = "ico_city_3.png";
+	}
+
 	console.log("Adding feature with name of "+name+" at a position of ("+x+","+y+"), in the table of "+table);
-	addData(table,name,x,y,x2,y2,type);
+	addData(table,name,x,y,x2,y2,type,icon);
 }
