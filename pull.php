@@ -5,6 +5,8 @@
 		$table = $_GET['table'];
 	}
 
+	$type = $table;
+
 	// Parsing the table name
 	// This is because we updated to full group of tables
 	// Creating the selectors
@@ -28,9 +30,8 @@
 	}
 	
 	$sql = "SELECT * FROM ";
-	$sql = $sql . $table;
+	$sql = $sql . $table . " WHERE type_category = '" . $type . "'";
 	$sql = $sql . ';';
-	
 	$result = $conn->query($sql);
 
 	$rows = array();

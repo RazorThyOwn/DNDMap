@@ -35,7 +35,7 @@
 	
 		<!--- Main loading of the div elements --->
 		<div id="container" style="width: 99vw; height: 98vh; overflow-y: auto;">
-			<div id="map" style="width: 80%; float: left; height: 100%; background-color: #68919E; position: fixed;">
+			<div id="map" style="width: 80%; float: left; height: 100%; background-color: #8DA9B2; position: fixed;">
 			</div>
 			<div style="width: 20%; float: right; text-align: center;">
 				<!--- Options menu --->

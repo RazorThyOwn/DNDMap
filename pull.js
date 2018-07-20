@@ -14,7 +14,7 @@ function getCity(table, id) {
 			url: 'pull.php',
 			data: {table: table},
 			success:function(data) {
-				//console.log("Reulstant data: " + data);
+				console.log("Reulstant data ("+id+"): " + data);
 				parseMarkerAdd(data,id);
 			}
 		});

@@ -2,21 +2,25 @@ var globlMarkerArray = [];
 var globlVectorArray = [];
 
 function getStyle(icon) {
+
+	console.log("Checking style of " + icon);
+
 	if (icon === 'ico_city_1.png') {
 		return style_city_capital;
 	}
 	else if (icon === 'ico_city_2.png') {
 		return style_city_greater;
-	}	
+	}
 	else if (icon === 'ico_city_3.png') {
 		return style_city_lesser;
-	}	
+	}
 	else if (icon === 'ico_terrain.png') {
+		console.log("Loading greater terrain style");
 		return style_terrain;
 	}
 	else if (icon === 'ico_terrain_1.png') {
+		console.log("Loading lesser terrain style");
 		return style_terrain_lesser;
-		console.log("Setting lesser terrain style");
 	}
 }
 
@@ -24,20 +28,25 @@ function parseMarkerAdd(data,id) {
 
 	//console.log(data);
 	// Function will take in all of the data returned by the Ajax and add it into the variable for marker addition
-	
-	// ID is used for helping us determine exactly what functionality is 
+
+	// ID is used for helping us determine exactly what functionality is
 	// going to be used from the table that we pull
-	
+
 	// -1 is icon (ie, cities, labels...)
 	// 1 is label (and only label)
 	// 2 is pull both marker and image
-	
+
 	// Loading the feature...
 	var feature;
-	
+
 	// Loading the JSON
+	// Checking if the size of data is meaningful
+	if (data.length < 20) {
+		return;
+	}
+
 	var dat = JSON.parse(data);
-	
+
 	console.log(dat);
 
 	dat.forEach(function(obj) {
@@ -49,35 +58,35 @@ function parseMarkerAdd(data,id) {
 			var x = obj.position_x;
 			var y = map_height - obj.position_y;
 			var icon = obj.icon;
-			
+
 			feature = new ol.Feature({
 				geometry: new ol.geom.Point([x,y])
 			});
-			
+
 
 			var style = getStyle(icon);
-			
+
 			feature.setStyle(style);
 			globlMarkerArray.push(feature);
 			return;
 		}
-		
+
 		else if (id == 0) {
 			console.log("loading vector data...");
-			
+
 			var x1 = obj.x1;
 			var y1 = map_height - obj.y1;
 			var x2 = obj.x2;
 			var y2 = map_height - obj.y2;
-			
+
 			var points = [[x1,y1],[x2,y2]];
-			
+
 			var featureLine = new ol.Feature({
 				geometry: new ol.geom.LineString(points)
 			});
-			
+
 			globlVectorArray.push(featureLine);
-			
+
 			return;
 		}
 
@@ -85,19 +94,19 @@ function parseMarkerAdd(data,id) {
 
 			var x = obj.position_x;
 			var y = map_height - obj.position_y;
-			
+
 			var name = obj.title;
-			
+
 			var label_elm = document.getElementById(name);
 			if (label_elm == null) {
 				// Going to create the document element...
-				
+
 				// Loading the DOM element into the node
 				var topX = document.createElement("a");
 				var node = document.createTextNode(name);
-				
+
 				topX.appendChild(node);
-				
+
 				// Adding style and class :p
 
 				topX.style.color = "black";
@@ -116,7 +125,7 @@ function parseMarkerAdd(data,id) {
 					newName = newName + letter;
 				}
 				
-				topX.href = "http://www.awalexweber.com/dndwiki/index.php/" + newName;
+				topX.href = "http://13.56.163.208/index.php/" + newName;
 				
 				overlayHolder.appendChild(topX);
 				
@@ -134,8 +143,8 @@ function parseMarkerAdd(data,id) {
 			
 			// Parsing
 
-			var x = parseInt(obj.x);
-			var y = map_height - obj.y;
+			var x = parseInt(obj.position_x);
+			var y = map_height - obj.position_y;
 			var icon = obj.icon;
 
 			feature = new ol.Feature({
@@ -149,7 +158,7 @@ function parseMarkerAdd(data,id) {
 			
 			// Loading label...
 			
-			var name = obj.name;
+			var name = obj.title;
 			
 			var label_elm = document.getElementById(name);
 			if (label_elm == null) {
@@ -287,7 +296,7 @@ function reloadMap_main() {
 	// Checking for terrain options
 	
 	var yuan_extent = [1695,2891,4217,5480];
-	var elvania_extent;
+	var elvania_extent = [5107, 4274, 7959, 5922];
 	var valdrimm_extent;
 	var choria_extent = [945,1869,2477,3330];
 	var ocean_extent;
@@ -482,12 +491,12 @@ function reloadMap_main() {
 	}
 		// Terrain and titles
 	if (elvania && terrain_elvania_greater) {
-		getCity("terrain_elvania_greater",1);
+		getCity("terrain_elvania_greater",2);
 	}
 	if (elvania && terrain_elvania_lesser) {
-		getCity("terrain_elvania_lesser",1);
+		getCity("terrain_elvania_lesser",2);
 	}
-	
+
 		// Lesser titles
 	if (elvania && titles_elvania_lesser) {
 		getCity("titles_elvania_lesser",1);
@@ -533,10 +542,10 @@ function reloadMap_main() {
 	}
 		// Terrain and titles
 	if (valdrimm && terrain_valdrimm_greater) {
-		getCity("terrain_valdrimm_greater",1);
+		getCity("terrain_valdrimm_greater",2);
 	}
 	if (valdrimm && terrain_valdrimm_lesser) {
-		getCity("terrain_valdrimm_lesser",1);
+		getCity("terrain_valdrimm_lesser",2);
 	}
 
 		// Lesser titles		
@@ -590,10 +599,10 @@ function reloadMap_main() {
 	}
 		// Terrain and titles
 	if (choria && terrain_choria_greater) {
-		getCity("terrain_choria_greater",1);
+		getCity("terrain_choria_greater",2);
 	}
 	if (choria && terrain_choria_lesser) {
-		getCity("terrain_choria_lesser",1);
+		getCity("terrain_choria_lesser",2);
 	}
 	
 		// Lesser titles
@@ -641,10 +650,10 @@ function reloadMap_main() {
 	}
 		// Terrain and titles
 	if (ocean && terrain_ocean_greater) {
-		getCity("terrain_ocean_greater",1);
+		getCity("terrain_ocean_greater",2);
 	}
 	if (ocean && terrain_ocean_lesser) {
-		getCity("terrain_ocean_lesser",1);
+		getCity("terrain_ocean_lesser",2);
 	}
 	
 		// Lesser titles
@@ -692,10 +701,10 @@ function reloadMap_main() {
 	}
 		// Terrain and titles
 	if (misc && terrain_misc_greater) {
-		getCity("terrain_misc_greater",1);
+		getCity("terrain_misc_greater",2);
 	}
 	if (misc && terrain_misc_lesser) {
-		getCity("terrain_misc_lesser",1);
+		getCity("terrain_misc_lesser",2);
 	}
 	
 		// Lesser titles

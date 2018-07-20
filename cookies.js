@@ -347,7 +347,7 @@ function saveCookies() {
 		}
 		output += String.fromCharCode(parseInt(binSelect, 2));
 	}
-	
+
 	//console.log(coded);
 	console.log(output);
 	document.cookie = "map="+output;
@@ -355,7 +355,7 @@ function saveCookies() {
 
 function loadCookie() {
 	var cookie = document.cookie;
-	
+
 	// Checking if our cookie exists or not
 	if (cookie == "") {
 		// No cookie is saved, using default values...

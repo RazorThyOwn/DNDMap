@@ -35,6 +35,14 @@ function addFeature() {
 	else {
 		console.log("Pushing terrain feature");
 		type = "terrain";
+
+		// Determinig the icon type for this
+		if (t3 == "capitals" || t3 == "greater") {
+			icon = "ico_terrain.png";
+		}
+		else {
+			icon = "ico_terrain_1.png";
+		}
 	}
 
 	// Setting up icons
@@ -48,6 +56,6 @@ function addFeature() {
 		icon = "ico_city_3.png";
 	}
 
-	console.log("Adding feature with name of "+name+" at a position of ("+x+","+y+"), in the table of "+table);
+	console.log("Adding feature with name of "+name+" at a position of ("+x+","+y+"), in the table of "+table+" with icon of " + icon);
 	addData(table,name,x,y,x2,y2,type,icon);
 }
